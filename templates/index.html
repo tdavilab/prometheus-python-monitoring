@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sistema de Seguimiento de Sitios Web</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body class="container-table100">
+	<h1 class ="seguimiento-style"><b>Sistema de Seguimiento de Sitios Web</h1>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+			<div><b>Agregar el nombre del servicio (Dirección IP o Dominio):
+				<form action="{{ url_for('add') }}" method="POST">
+					<br>
+					Name: <input type="text" name="i_hostname">
+					<br>
+					Port: <input type="text" name="i_port">
+					<br>
+					<input type="submit" value="Agregar Sitio Web">
+					<hr>
+				</form>
+			</div>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Nombre del Sitio</th>
+								<th class="column2">Tipo de nombre</th>
+								<th class="column3">Disponibilidad (up)</th>
+								<th class="column4">Registrado</th>
+								<th class="column5">Latencia</th>
+								<th class="column6">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for website in w_list %}
+								<tr>
+									<td class="column1">{{ website.name }}</td>
+									<td class="column2">{{ website.check }}</td>
+									<td class="column3">{{ website.up }}</td>
+									<td class="column4">{{ website.registered }}</td>
+									<td class="column5">{{ website.latency }}</td>
+									<td class="column6"><a href="{{ url_for('delete', id=website.id) }}">❌</a></td>
+								</tr>
+							{% endfor %}							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
