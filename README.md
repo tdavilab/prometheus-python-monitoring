@@ -2,7 +2,7 @@
 This application is a website status checker which tracks information about availability, uptime and latency of a specified number of websites.
 The application exposes it's metrics so that prometheus can access them and store them as time series data.
 
-##Installation
+## Installation
 
 You need to have virtualenv installed:
 ```sh
@@ -17,17 +17,17 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-##Usage
+## Usage
 
 ```sh
 source env/bin/activate
 python app.py
 ```
 
-###Website:
+### Website:
 http://127.0.0.1:5000/
 
-###Exposed Prometheus Metrics:
+### Exposed Prometheus Metrics:
 http://127.0.0.1:5000/metrics
 
 
