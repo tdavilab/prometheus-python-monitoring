@@ -10,8 +10,8 @@ python -m pip install virtualenv
 ```
 
 ```sh
-git clone https://github.com/
-cd 
+git clone https://github.com/tdavilab/prometheus-python-monitoring.git
+cd prometheus-python-monitoring
 virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
