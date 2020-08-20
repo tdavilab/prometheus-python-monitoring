@@ -5,6 +5,7 @@ The application exposes it's metrics so that prometheus can access them and stor
 ## Installation
 
 You need to have virtualenv installed:
+
 ```sh
 python -m pip install virtualenv
 ```
